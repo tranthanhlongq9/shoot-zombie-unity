@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    
     //public GameObject menuMain;
 
     //public bool isload;
@@ -13,7 +14,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
-        
+    
     }
     
     public void Play()

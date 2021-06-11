@@ -204,7 +204,7 @@ public class WeaponBase : MonoBehaviour {
 		if(!canShoot) return;
 
 		if(loadedBullets <= 0) {
-			// When Ammo is out, make fire is not working for a moment
+			// When Ammo is out, make fire is not working for a moment -- Khi hết đạn, bắn sẽ không hoạt động trong giây lát
 			StartCoroutine(DisableFire());
 			soundManager.Play(drySound);
 
@@ -341,7 +341,7 @@ public class WeaponBase : MonoBehaviour {
 		crosshair.sprite = crosshairSprite;
 	}
 
-	void AdjustAimingSights() {
+	void AdjustAimingSights() {  //nhắm
 		if(Input.GetButton("Fire2") && !isReloading) {
 			UpdateCrosshair(true);
 			transform.localPosition = Vector3.Lerp(transform.localPosition, aimPos, Time.deltaTime * aimingSpeed);
@@ -361,7 +361,7 @@ public class WeaponBase : MonoBehaviour {
 		}
 	}
 
-	void StartReload() {
+	void StartReload() { //khởi động gài đạn
 		if(isReloading ||
 			loadedBullets >= bulletsPerMag || 
 			bulletsLeft <= 0) return;
@@ -395,7 +395,7 @@ public class WeaponBase : MonoBehaviour {
 		StartCoroutine(PrepareWeapon());
 	}
 
-	public void InitAmmo() {
+	public void InitAmmo() {  //khởi tạo đạn
 		canShoot = true;
 		bulletsLeft = startBullets;
 		loadedBullets = bulletsPerMag;
@@ -418,11 +418,11 @@ public class WeaponBase : MonoBehaviour {
 		yield break;
 	}
 
-	public void UpdateAmmoText() {
+	public void UpdateAmmoText() {  //update số đạn lên UI
 		weaponAmmoText.text = loadedBullets + " / " + bulletsLeft;
 	}
 
-	public void Unload() {
+	public void Unload() { 
 		isReloading = false;
 		isEnabled = false;
 		
@@ -446,7 +446,7 @@ public class WeaponBase : MonoBehaviour {
 	}
 
 	void OnAmmoInsertion() {
-		isReloading = false;	// Make gun fire is possible
+		isReloading = false;	// Make gun fire is possible -- làm súng có thể bắn
 		bulletsLeft--;
 		loadedBullets++;
 
@@ -457,7 +457,7 @@ public class WeaponBase : MonoBehaviour {
 		UpdateAmmoText();
 	}
 
-	void OnFirstAmmoInsert() {
+	void OnFirstAmmoInsert() { 
 		if(bulletsLeft <= 0) {
 			animator.CrossFadeInFixedTime("FPSHand|Stand", 0.01f);
 		}
@@ -466,11 +466,11 @@ public class WeaponBase : MonoBehaviour {
 		}
 	}
 
-	void OnBeforeInsert() {
+	void OnBeforeInsert() { 
 		isReloading = true;
 	}
 
-	void OnAfterInsert() {
+	void OnAfterInsert() { 
 		if(loadedBullets >= bulletsPerMag) {
 			animator.CrossFadeInFixedTime("FPSHand|ReloadEnd", 0.01f);
 		}

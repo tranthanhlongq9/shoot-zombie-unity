@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -12,7 +12,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
-        [SerializeField] private bool m_IsAiming;       // use for slow down while aiming
+        [SerializeField] private bool m_IsAiming;       // sử dụng để làm chậm trong khi nhắm mục tiêu
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
@@ -328,6 +328,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 
+        //GetPlayerStealthProfile
+        public int GetPlayerStealthProfile()
+        {
+            if (m_IsWalking)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {

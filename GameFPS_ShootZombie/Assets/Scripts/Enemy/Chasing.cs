@@ -36,7 +36,7 @@ public class Chasing : MonoBehaviour {
 		StartCoroutine(CoRetargeting());
 	}
 
-	// Update is called once per frame
+	// phương thức Cập nhật được gọi một lần cho mỗi khung hình
 	void Update () {
 		if(!target) {
 			if(!isRetargeting && !healthManager.IsDead) {
@@ -48,10 +48,10 @@ public class Chasing : MonoBehaviour {
 
 		if(!healthManager.IsDead) {
 			float distance = GetActualDistanceFromTarget();
-			agent.destination = target.transform.position;	// remove this after resolved
+			agent.destination = target.transform.position;  // remove this after resolved
 
-			// Reduce calculation of path finding
-			if(distance <= 20f) {
+			// Reduce calculation of path finding - Giảm tính toán tìm đường đi
+			if (distance <= 20f) {
 				if(distUpdateCo != null) {
 					StopCoroutine(distUpdateCo);
 				}
@@ -104,7 +104,7 @@ public class Chasing : MonoBehaviour {
 		StartCoroutine(CoRetargeting());
 	}
 
-	public void SetTarget(GameObject player) {
+	public void SetTarget(GameObject player) { 
 		target = player;
 
 		if(player == null) {
@@ -130,7 +130,8 @@ public class Chasing : MonoBehaviour {
 		return closestPlayer;
 	}
 
-	float GetActualDistanceFromTarget() {
+	float GetActualDistanceFromTarget()
+	{ //phương thức Tính khoảng cách thực tế từ mục tiêu
 		return GetDistanceFrom(target.transform.position, this.transform.position);
 	}
 
@@ -151,10 +152,11 @@ public class Chasing : MonoBehaviour {
 	IEnumerator resetAttackCo = null;
 
 	void CheckAttack() {
-		// Calculate actual distance from target
-		float distanceFromTarget = GetActualDistanceFromTarget();
+		// Tính khoảng cách thực tế từ mục tiêu
 		
-		// Calculate direction is toward player
+		float distanceFromTarget = GetActualDistanceFromTarget();
+
+		// Tính toán hướng về phía người chơi
 		Vector3 direction = target.transform.position - this.transform.position;
 		float angle = Vector3.Angle(direction, this.transform.forward);
 
@@ -198,9 +200,9 @@ public class Chasing : MonoBehaviour {
 		damage = newDamage;
 	}
 
-	public void SetSpeed(float newSpeed, float newAngularSpeed) {
+	public void SetSpeed(float newSpeed, float newAngularSpeed) { 
 		agent.speed = newSpeed;
 		agent.angularSpeed = newAngularSpeed;
-		animator.SetFloat("SpeedMultiplier", newSpeed);
+		animator.SetFloat("SpeedMultiplier", newSpeed); //tang speed cho zombie
 	}
 }

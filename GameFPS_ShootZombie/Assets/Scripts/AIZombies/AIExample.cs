@@ -33,13 +33,33 @@ public class AIExample : MonoBehaviour
     private Animator animator;
     private float loseTimer = 0;
 
+    private Collider[] ragdollColliders;
+    private Rigidbody[] ragdollRigidbodies;
+
 
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         //renderer = GetComponent<Renderer>();
-        animator = GetComponentInChildren<Animator>();
+        //animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         wanderPoint = RandomWanderPoint();
+
+        //ragdollColliders = GetComponentsInChildren<Collider>();
+        //ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+        //foreach(Collider col in ragdollColliders)
+        //{
+        //    if (!col.CompareTag("Zombie"))
+        //    {
+        //        col.enabled = false;
+
+        //    }
+        //}
+        //foreach(Rigidbody rb in ragdollRigidbodies)
+        //{
+        //    rb.isKinematic = true;
+            
+        //}
     }
 
     public void Update()
@@ -47,10 +67,8 @@ public class AIExample : MonoBehaviour
         
         if (health <= 0) //nếu zombie died 
         {
-            agent.speed = 0;
-            animator.enabled = false;
-
-            //Destroy(gameObject);
+            Die();
+            
             return;
         }
 
@@ -70,6 +88,8 @@ public class AIExample : MonoBehaviour
                 }
             }
 
+            //PlayAttackAnimation();
+
             renderer.material.color = Color.red;
         }
         else
@@ -80,6 +100,7 @@ public class AIExample : MonoBehaviour
             animator.SetBool("Aware", false);
             agent.speed = wanderSpeed;
 
+            
             renderer.material.color = Color.blue;
         }
         //tìm
@@ -124,12 +145,42 @@ public class AIExample : MonoBehaviour
         }
     }
 
+    //xử lý nhận thức chuyển từ đi sang chạy đuổi
     public void OnAware()
     {
         isAware = true;
         isDetecting = true;
         loseTimer = 0;
     }
+
+    public void PlayAttackAnimation()
+    {
+        animator.SetTrigger("Attack");
+        
+    }
+
+    public void Die()
+    {
+        agent.speed = 0;
+        animator.SetTrigger("Dead");
+
+        //animator.enabled = false;
+
+ 
+        //animator.SetTrigger("Dead");
+
+        //foreach (Collider col in ragdollColliders)
+        //{
+        //    col.enabled = true;
+        //}
+        //foreach (Rigidbody rb in ragdollRigidbodies)
+        //{
+        //    rb.isKinematic = false;
+        //}
+
+        Destroy(gameObject, 3f);
+    }
+
 
     //Xử lý đi lang thang cho zombies
     public void Wander()

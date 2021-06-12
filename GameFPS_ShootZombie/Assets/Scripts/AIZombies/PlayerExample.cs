@@ -69,7 +69,7 @@ public class PlayerExample : MonoBehaviour
     //xử lý va chạm Trigger kích hoạt
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Zombie"))
         {
             other.GetComponent<AIExample>().OnAware();
         }

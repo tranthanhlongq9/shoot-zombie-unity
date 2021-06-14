@@ -26,6 +26,10 @@ public class AIExample : MonoBehaviour
 
     private bool isAware = false;
     private bool isDetecting = false;
+
+    //private bool isMeeting = false;
+
+
     private Vector3 wanderPoint;
     private NavMeshAgent agent;
     //private Renderer renderer;
@@ -78,6 +82,7 @@ public class AIExample : MonoBehaviour
             agent.SetDestination(fpsc.transform.position);
             animator.SetBool("Aware", true);
             agent.speed = chaseSpeed;
+            // khi lạc mất player
             if (!isDetecting)
             {
                 loseTimer += Time.deltaTime;
@@ -87,6 +92,13 @@ public class AIExample : MonoBehaviour
                     loseTimer = 0;
                 }
             }
+
+            //if (isMeeting)
+            //{
+            //    PlayAttackAnimation();
+            //}
+
+
 
             //PlayAttackAnimation();
 
@@ -123,6 +135,9 @@ public class AIExample : MonoBehaviour
                     if (hit.transform.CompareTag("Player"))
                     {
                         OnAware();
+
+
+                        //PlayAttackAnimation();
                     }
                     else
                     {
@@ -155,7 +170,9 @@ public class AIExample : MonoBehaviour
 
     public void PlayAttackAnimation()
     {
-        animator.SetTrigger("Attack");
+
+        //animator.SetTrigger("Attack");
+        animator.SetBool("Attackk",true);
         
     }
 
@@ -166,9 +183,6 @@ public class AIExample : MonoBehaviour
 
         //animator.enabled = false;
 
- 
-        //animator.SetTrigger("Dead");
-
         //foreach (Collider col in ragdollColliders)
         //{
         //    col.enabled = true;
@@ -178,7 +192,7 @@ public class AIExample : MonoBehaviour
         //    rb.isKinematic = false;
         //}
 
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 4f);
     }
 
 

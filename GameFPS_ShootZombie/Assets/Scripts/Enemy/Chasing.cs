@@ -158,9 +158,9 @@ public class Chasing : MonoBehaviour {
 
 		// Tính toán hướng về phía người chơi
 		Vector3 direction = target.transform.position - this.transform.position;
-		float angle = Vector3.Angle(direction, this.transform.forward);
+		float angle = Vector3.Angle(direction, this.transform.forward); // Angle: Trả về một góc tính bằng độ (degree) là góc giữa hai Vector3
 
-		if(!isAttacking && distanceFromTarget <= 2.0f && angle <= 60f) {
+		if (!isAttacking && distanceFromTarget <= 2.0f && angle <= 60f) {
 			isAttacking = true;
 			shouldChase = false;
 
@@ -180,6 +180,7 @@ public class Chasing : MonoBehaviour {
 			resetAttackCo = ResetAttacking();
 			StartCoroutine(resetAttackCo);
 		}
+        
 	}
 
 	IEnumerator ResetAttacking() {

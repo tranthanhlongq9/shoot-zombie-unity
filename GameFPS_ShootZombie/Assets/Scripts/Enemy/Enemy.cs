@@ -52,6 +52,12 @@ public class Enemy : MonoBehaviour {
 
 	public void PlayAttackAnimation() {
 		animator.SetTrigger("Attack");
+		//animator.SetBool("Attackk", true);
 		audioSource.PlayOneShot(attackSound);
+	}
+
+	public void EndAttack()
+    {
+		animator.SetBool("Attackk", false);
 	}
 }

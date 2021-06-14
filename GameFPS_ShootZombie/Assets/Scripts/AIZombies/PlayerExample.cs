@@ -64,12 +64,13 @@ public class PlayerExample : MonoBehaviour
             hit.transform.GetComponent<AIExample>().OnHit(attackDamage);
         }
 
+
     }
 
     //xử lý va chạm Trigger kích hoạt
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Zombie"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             other.GetComponent<AIExample>().OnAware();
         }

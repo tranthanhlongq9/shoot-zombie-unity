@@ -71,6 +71,10 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+    <Compile Include="Assets\Flooded_Grounds\Scripts\DisableRenderer.cs" />
+    <Compile Include="Assets\Flooded_Grounds\Scripts\FPSController\CharController_Motor.cs" />
+    <Compile Include="Assets\Flooded_Grounds\Scripts\FPSDisplay.cs" />
+    <Compile Include="Assets\Flooded_Grounds\Scripts\WaterFloat.cs" />
     <Compile Include="Assets\PostProcessing-1\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing-1\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing-1\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -116,7 +120,6 @@
     <Compile Include="Assets\PostProcessing-1\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing-1\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing-1\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
-    <Compile Include="Assets\Scenes\CellExitDoor.cs" />
     <Compile Include="Assets\Scripts\AIZombies\AIChasing.cs" />
     <Compile Include="Assets\Scripts\AIZombies\AIExample.cs" />
     <Compile Include="Assets\Scripts\AIZombies\PlayerExample.cs" />
@@ -139,6 +142,7 @@
     <Compile Include="Assets\Scripts\Shop\ShopDetector.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpriteManager.cs" />
+    <Compile Include="Assets\Scripts\Trigger\CellExitDoor.cs" />
     <Compile Include="Assets\Scripts\Trigger\DoorCellOpen.cs" />
     <Compile Include="Assets\Scripts\Trigger\GCellOpen.cs" />
     <Compile Include="Assets\Scripts\Trigger\PlayerCasting.cs" />
@@ -175,9 +179,11 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\TAA.cginc" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
+    <None Include="Assets\Flooded_Grounds\Resources\TreeCreator\TreeCreatorBark.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
+    <None Include="Assets\Flooded_Grounds\Resources\TreeCreator\TreeCreatorLeavesOptimized.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -195,6 +201,7 @@
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
+    <None Include="Assets\Flooded_Grounds\Content\Shaders\FG_PBR_TopBlend.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\Fog.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\MotionBlur.shader" />
@@ -203,6 +210,8 @@
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Editor Resources\UI\Trackball.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
+    <None Include="Assets\Flooded_Grounds\Resources\WavingGrass.shader" />
+    <None Include="Assets\Flooded_Grounds\Resources\TreeCreator\TreeCreatorBarkOptimized.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\Common.cginc" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\Bloom.shader" />
@@ -210,6 +219,7 @@
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\TAA.shader" />
+    <None Include="Assets\Flooded_Grounds\Resources\TreeCreator\TreeCreatorLeaves.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\Blit.shader" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Resources\Shaders\Bloom.cginc" />
     <None Include="Assets\PostProcessing-1\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
@@ -218,8 +228,11 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Flooded_Grounds\Content\Shaders\FG_Triplanar_BumpSpec.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Flooded_Grounds\Content\Shaders\FG_Skybox_Rotating.shader" />
+    <None Include="Assets\Flooded_Grounds\Content\Shaders\FG_PBR_Water.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
